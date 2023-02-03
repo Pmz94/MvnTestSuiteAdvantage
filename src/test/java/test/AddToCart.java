@@ -23,6 +23,7 @@ public class AddToCart extends Browsers {
 		driver.findElement(By.name("save_to_cart")).click();
 		// 6 | click | linkText=HOME |
 		driver.findElement(By.linkText("HOME")).click();
+
 		delay(5);
 		// 7 | click | id=tabletsImg |
 		driver.findElement(By.id("tabletsImg")).click();
@@ -34,6 +35,7 @@ public class AddToCart extends Browsers {
 		driver.findElement(By.name("save_to_cart")).click();
 		// 10 | click | linkText=HOME |
 		driver.findElement(By.linkText("HOME")).click();
+
 		delay(5);
 		// 11 | click | id=laptopsImg |
 		driver.findElement(By.id("laptopsImg")).click();

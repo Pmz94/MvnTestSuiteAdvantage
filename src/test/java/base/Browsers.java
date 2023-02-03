@@ -20,27 +20,26 @@ public class Browsers {
 
 	/**
 	 * setup Funcion que setea el driver
-	 * 
+	 *
 	 * @param browser String
 	 * @param url     String
 	 */
 	@Parameters({ "browser", "url" })
 	@BeforeClass
-	public void setup(@Optional("chrome") String browser,
-		@Optional("https://www.advantageonlineshopping.com") String url) {
+	public void setup(
+		@Optional("chrome") String browser,
+		@Optional("https://www.advantageonlineshopping.com") String url
+	) {
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
 		} else if(browser.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
 		}
+		driver.get(url);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 
 	@AfterClass
@@ -52,12 +51,12 @@ public class Browsers {
 
 	/**
 	 * delay Funcion para facilitar el Thread sleep
-	 * 
+	 *
 	 * @param segundos int
 	 */
 	public void delay(int segundos) {
 		try {
-			Thread.sleep(segundos * 1000);
+			Thread.sleep(segundos * 1000L);
 		} catch(InterruptedException e) {
 			print(e.toString());
 		}
