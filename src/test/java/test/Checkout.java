@@ -57,13 +57,13 @@ public class Checkout extends Browsers {
 			}
 
 			String rastreo = driver.findElement(By.id("trackingNumberLabel")).getText();
-			if(!rastreo.isEmpty()) {
+			if(!rastreo.equals("")) {
 				print("Num rastreo obtenido");
 				pass++;
 			}
 
 			String orden = driver.findElement(By.id("orderNumberLabel")).getText();
-			if(!orden.isEmpty()) {
+			if(!orden.equals("")) {
 				print("Num orden obtenido");
 				pass++;
 			}
