@@ -1,15 +1,15 @@
-package test;
 
 // AddToCart
 // Created by Samuel Arreola
 
-import base.Navegadores;
+package test;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DAddToCart extends Navegadores {
+import base.Browsers;
+
+public class AddToCart extends Browsers {
 	@Test(description = "add 1 items from 3 different categories to cart")
 	public void addToCart() {
 		delay(5);
@@ -45,20 +45,13 @@ public class DAddToCart extends Navegadores {
 		driver.findElement(By.name("save_to_cart")).click();
 
 		/*
-		// 14 | click | id=checkOutPopUp |
-		driver.findElement(By.id("checkOutPopUp")).click();
-		delay(5);
-		// 15 click next
-		driver.findElement(By.id("next_btn")).click();
-		delay(5);
-		// 16 adding username and password for pay
-		driver.findElement(By.name("safepay_username")).sendKeys("SamuelTest");
-		driver.findElement(By.name("safepay_password")).sendKeys("Softtek01");
-		driver.findElement(By.id("pay_now_btn_SAFEPAY")).click();
-		delay(5);
-		//Validate
-		String textValidate = driver.findElement(By.className("roboto-regular ng-scope")).getText();
-		Assert.assertEquals(textValidate, "Thank you for buying with Advantage");
-		*/
+		 * // 14 | click | id=checkOutPopUp | driver.findElement(By.id("checkOutPopUp")).click(); delay(5); // 15 click
+		 * next driver.findElement(By.id("next_btn")).click(); delay(5); // 16 adding username and password for pay
+		 * driver.findElement(By.name("safepay_username")).sendKeys("SamuelTest");
+		 * driver.findElement(By.name("safepay_password")).sendKeys("Softtek01");
+		 * driver.findElement(By.id("pay_now_btn_SAFEPAY")).click(); delay(5); //Validate String textValidate =
+		 * driver.findElement(By.className("roboto-regular ng-scope")).getText(); Assert.assertEquals(textValidate,
+		 * "Thank you for buying with Advantage");
+		 */
 	}
 }

@@ -1,23 +1,24 @@
-package test;
 
 // Checkout
 // Created by Pedro Muñoz
 
-import base.Navegadores;
+package test;
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
+import base.Browsers;
 
-public class ECheckout extends Navegadores {
-
+public class Checkout extends Browsers {
 	@Test
 	public void checkout() {
 		driver.findElement(By.id("shoppingCartLink")).click();
 		delay(3);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
 
 		// Ver si hay productos en el carrito
 		List<WebElement> l = driver.findElements(By.xpath("//*[@id='shoppingCart']/div/label"));
@@ -67,7 +68,8 @@ public class ECheckout extends Navegadores {
 				pass++;
 			}
 
-			String total2 = driver.findElement(By.xpath("//*[@id='orderPaymentSuccess']/div/div[3]/div[3]/label/a")).getText();
+			String total2 = driver.findElement(By.xpath("//*[@id='orderPaymentSuccess']/div/div[3]/div[3]/label/a"))
+				.getText();
 			if(total1.equals(total2)) {
 				print("Pagaste justo lo que costo");
 			}

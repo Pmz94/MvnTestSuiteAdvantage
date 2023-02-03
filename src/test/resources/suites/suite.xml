@@ -5,13 +5,13 @@
 		<parameter name="browser" value="chrome"/>
 		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="test.ACreateAccount"/>
-			<class name="test.BLogin"/>
-			<class name="test.CSearch"/>
-			<class name="test.DAddToCart"/>
-			<class name="test.ECheckout"/>
-			<class name="test.FContact"/>
-			<class name="test.GChat"/>
+			<class name="test.CreateAccount"/>
+			<class name="test.Login"/>
+			<class name="test.Search"/>
+			<class name="test.AddToCart"/>
+			<class name="test.Checkout"/>
+			<class name="test.Contact"/>
+			<class name="test.Chat"/>
 		</classes>
 	</test>
 	<!--
@@ -19,13 +19,13 @@
 		<parameter name="browser" value="firefox"/>
 		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="test.ACreateAccount"/>
-			<class name="test.BLogin"/>
-			<class name="test.CSearch"/>
-			<class name="test.DAddToCart"/>
-			<class name="test.ECheckout"/>
-			<class name="test.FContact"/>
-			<class name="test.GChat"/>
+			<class name="test.CreateAccount"/>
+			<class name="test.Login"/>
+			<class name="test.Search"/>
+			<class name="test.AddToCart"/>
+			<class name="test.Checkout"/>
+			<class name="test.Contact"/>
+			<class name="test.Chat"/>
 		</classes>
 	</test>
 	-->

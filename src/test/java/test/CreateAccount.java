@@ -1,3 +1,7 @@
+
+// CreateAccount
+// Created by Maria Jose Rivera
+
 package test;
 
 import java.util.List;
@@ -7,12 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-// CreateAccount
-// Created by Maria Jose Rivera
+import base.Browsers;
 
-import base.Navegadores;
-
-public class ACreateAccount extends Navegadores {
+public class CreateAccount extends Browsers {
 	// Create new account
 	@Test
 	public void createAccount() {

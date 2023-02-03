@@ -5,7 +5,7 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.softtek</groupId>
-	<artifactId>Advantage</artifactId>
+	<artifactId>MvnTestAdvantage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -45,16 +45,4 @@
 			<version>3.9</version>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>7</source>
-					<target>7</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>

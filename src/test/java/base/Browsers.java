@@ -1,35 +1,33 @@
 package base;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-/**
- * Navegadores
- * Clase que setea el navegador donde se van hacer las pruebas
- */
-public class Navegadores {
+public class Browsers {
 	protected WebDriver driver;
-
 	public String user = "Team32";
 	public String email = "team3@mail.com";
 	public String password = "Team03";
 
 	/**
-	 * setup
-	 * Funcion que setea el driver
+	 * setup Funcion que setea el driver
+	 * 
 	 * @param browser String
-	 * @param url String
+	 * @param url     String
 	 */
 	@Parameters({ "browser", "url" })
 	@BeforeClass
-	public void setup(
-		@Optional("chrome") String browser,
-		@Optional("https://www.advantageonlineshopping.com") String url
-	) {
+	public void setup(@Optional("chrome") String browser,
+		@Optional("https://www.advantageonlineshopping.com") String url) {
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -53,8 +51,8 @@ public class Navegadores {
 	}
 
 	/**
-	 * delay
-	 * Funcion para facilitar el Thread sleep
+	 * delay Funcion para facilitar el Thread sleep
+	 * 
 	 * @param segundos int
 	 */
 	public void delay(int segundos) {

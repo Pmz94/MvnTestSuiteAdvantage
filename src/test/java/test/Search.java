@@ -1,15 +1,16 @@
-package test;
 
 // Search
 // Created by Walter Medina
 
-import base.Navegadores;
+package test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class CSearch extends Navegadores {
+import base.Browsers;
 
+public class Search extends Browsers {
 	public String search_icon = "searchSection";
 	public String search_input = "autoComplete";
 	public String product_name_to_find = "bose soundlink bluetooth";

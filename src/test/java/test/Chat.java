@@ -1,19 +1,20 @@
-package test;
 
 // Chat
 // Created by Marcelo Gonzalez
 
-import base.Navegadores;
+package test;
+
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Iterator;
-import java.util.Set;
+import base.Browsers;
 
-public class GChat extends Navegadores {
-
+public class Chat extends Browsers {
 	@Test
 	public void chat() {
 		delay(2);
