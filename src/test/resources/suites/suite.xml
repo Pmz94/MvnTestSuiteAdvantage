@@ -5,13 +5,13 @@
 		<parameter name="browser" value="chrome"/>
 		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="test.CreateAccount"/>
-			<class name="test.Login"/>
-			<class name="test.Search"/>
-			<class name="test.AddToCart"/>
-			<class name="test.Checkout"/>
-			<class name="test.Contact"/>
-			<class name="test.Chat"/>
+			<!--<class name="tsd.Tsd_CreateAccount"/>-->
+			<class name="tsd.Tsd_Login"/>
+			<!--<class name="tsd.Tsd_Search"/>-->
+			<!--<class name="tsd.Tsd_AddToCart"/>-->
+			<class name="tsd.Tsd_Checkout"/>
+			<class name="tsd.Tsd_ContactUs"/>
+			<!--<class name="tsd.Tsd_Chat"/>-->
 		</classes>
 	</test>
 	<!--
@@ -19,13 +19,13 @@
 		<parameter name="browser" value="firefox"/>
 		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="test.CreateAccount"/>
-			<class name="test.Login"/>
-			<class name="test.Search"/>
-			<class name="test.AddToCart"/>
-			<class name="test.Checkout"/>
-			<class name="test.Contact"/>
-			<class name="test.Chat"/>
+			<class name="tsd.Tsd_CreateAccount"/>
+			<class name="tsd.Tsd_Login"/>
+			<class name="tsd.Tsd_Search"/>
+			<class name="tsd.Tsd_AddToCart"/>
+			<class name="tsd.Tsd_Checkout"/>
+			<class name="tsd.Tsd_Contact"/>
+			<class name="tsd.Tsd_Chat"/>
 		</classes>
 	</test>
 	-->
