@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import base.Browsers;
-import base.Navegadores;
+//import base.Navegadores;
 
 
 public class BSN_Chat extends Browsers{

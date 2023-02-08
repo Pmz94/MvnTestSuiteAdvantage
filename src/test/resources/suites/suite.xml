@@ -8,7 +8,7 @@
 			<!--<class name="tsd.Tsd_CreateAccount"/>-->
 			<class name="tsd.Tsd_Login"/>
 			<!--<class name="tsd.Tsd_Search"/>-->
-			<!--<class name="tsd.Tsd_AddToCart"/>-->
+			<class name="tsd.Tsd_AddingToCart"/>
 			<class name="tsd.Tsd_Checkout"/>
 			<class name="tsd.Tsd_ContactUs"/>
 			<!--<class name="tsd.Tsd_Chat"/>-->

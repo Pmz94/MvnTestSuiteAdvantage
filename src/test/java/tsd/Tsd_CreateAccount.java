@@ -1,4 +1,4 @@
-package test;
+package tsd;
 
 import org.testng.annotations.Test;
 
