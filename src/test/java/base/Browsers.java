@@ -14,12 +14,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Browsers {
 	protected WebDriver driver;
-	public String user = "Team32";
-	public String email = "team3@mail.com";
-	public String password = "Team03";
 
 	/**
-	 * setup Funcion que setea el driver
+	 * setup
+	 * Funcion que setea el driver
 	 *
 	 * @param browser String
 	 * @param url     String
@@ -38,8 +36,9 @@ public class Browsers {
 			driver = new FirefoxDriver();
 		}
 		driver.get(url);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		delay(3);
 	}
 
 	@AfterClass

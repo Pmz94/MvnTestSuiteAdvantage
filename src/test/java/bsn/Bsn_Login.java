@@ -25,7 +25,7 @@ public class Bsn_Login extends Browsers {
 		// Input user locator
 		WebElement btnUser = driver.findElement(By.xpath("//a[@id='hrefUserIcon']//*[name()='svg']"));
 		btnUser.click();
-		delay(3);
+		delay(2);
 
 		WebElement inputUserName = driver.findElement(By.xpath("//input[@name=\"username\"]"));
 		inputUserName.sendKeys(user);
@@ -37,8 +37,7 @@ public class Bsn_Login extends Browsers {
 		buttonSign.click();
 		delay(1);
 
-		WebElement userMessage = driver.findElement(By.xpath("//*[@id=\"menuUserLink\" ]/span"));
-		System.out.println(userMessage.getText());
+		WebElement userMessage = driver.findElement(By.xpath("//*[@id=\"menuUserLink\"]/span"));
 		delay(1);
 
 		Assert.assertEquals(user, userMessage.getText());

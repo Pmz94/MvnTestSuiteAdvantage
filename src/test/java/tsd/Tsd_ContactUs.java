@@ -11,8 +11,9 @@ import bsn.Bsn_ContactUs;
 public class Tsd_ContactUs extends Browsers {
 
 	@Test
-	public void login() {
-		Bsn_ContactUs login = new Bsn_ContactUs(driver);
-		login.Run();
+	public void contactUs() {
+		Bsn_ContactUs contact = new Bsn_ContactUs(driver);
+		contact.email = "team3@mail.com";
+		contact.Run();
 	}
 }

@@ -2,6 +2,7 @@
 // Login
 // Created by Samantha Jasso
 
+/*
 package test;
 
 import org.openqa.selenium.By;
@@ -56,5 +57,6 @@ public class Login extends Browsers {
 	 * delay(1); WebElement userMessage = driver.findElement(By.xpath("//*[@id=\"menuUserLink\" ]/span"));
 	 * System.out.println(userMessage.getText()); delay(1); Assert.assertEquals(user, userMessage.getText());
 	 * btnUser.click(); delay(1); btnUser.click(); }
-	 */
+	 * /
 }
+*/

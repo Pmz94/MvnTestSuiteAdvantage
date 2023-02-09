@@ -2,6 +2,7 @@
 // CreateAccount
 // Created by Maria Jose Rivera
 
+/*
 package test;
 
 import java.util.List;
@@ -44,7 +45,6 @@ public class CreateAccount extends Browsers {
 
 		WebElement btnRegister = driver.findElement(By.id("register_btnundefined"));
 		btnRegister.click();
-
 		delay(3);
 
 		List<WebElement> l = driver.findElements(By.xpath("//*[@id='registerPage']/article/sec-form/div[2]/label[1]"));
@@ -63,3 +63,4 @@ public class CreateAccount extends Browsers {
 		}
 	}
 }
+*/
