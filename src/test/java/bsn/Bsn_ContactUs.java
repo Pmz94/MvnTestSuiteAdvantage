@@ -1,5 +1,5 @@
 
-// Contact
+// ContactUs
 // Created by Mayra Juarez
 
 package bsn;

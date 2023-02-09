@@ -4,14 +4,11 @@
 
 package bsn;
 
-import java.util.List;
-
+import base.Browsers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import base.Browsers;
 
 public class Bsn_Checkout extends Browsers {
 	WebDriver driver;

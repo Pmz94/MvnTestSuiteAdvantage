@@ -4,16 +4,11 @@
 
 package tsd;
 
-import java.io.IOException;
-
-import bsn.Bsn_AddingToCart;
-import bsn.Bsn_Login;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import base.Browsers;
-import base.ExcelReader;
+import bsn.Bsn_AddingToCart;
 import bsn.Bsn_Checkout;
+import bsn.Bsn_Login;
+import org.testng.annotations.Test;
 
 public class Tsd_Checkout extends Browsers {
 
@@ -32,20 +27,4 @@ public class Tsd_Checkout extends Browsers {
 		checkout.safepay_password = "Team3";
 		checkout.Run();
 	}
-
-	// @DataProvider(name = "datatest")
-	// public Object[][] dp() {
-	// 	return new Object[][] { new Object[] { "PedroMontes81", "hola123", "pmontes@example.com" },
-	// 		new Object[] { "PedroTorresL40", "hola123", "ptorres@example.com" },
-	// 		new Object[] { "PedroMontes81", "hola123", "pmontes@example.com" },
-	// 		new Object[] { "PedroMontes81", "hola123", "pmontes@example.com" },
-	// 		new Object[] { "PedroMontes81", "hola123", "pmontes@example.com" } };
-	// }
-	//
-	// @DataProvider(name = "datatestexcel")
-	// public String[][] getExcelData() throws InvalidFormatException, IOException {
-	// 	ExcelReader read = new ExcelReader();
-	// 	String file = "C:\\Users\\pedro.munozz\\Documents\\EclipseProjects\\Selenium\\Data\\users.xlsx";
-	// 	return read.getCellData(file, "Sheet1");
-	// }
 }

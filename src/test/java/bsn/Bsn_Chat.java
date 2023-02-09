@@ -1,3 +1,7 @@
+
+// Chat
+// Created by Marcelo Gonzalez
+
 package bsn;
 
 import java.util.Iterator;
