@@ -13,6 +13,7 @@ import base.Browsers;
 
 public class Bsn_Login extends Browsers {
 	WebDriver driver;
+	
 	// User variables
 	public String user = "Juanito";
 	public String password = "Prueba001";

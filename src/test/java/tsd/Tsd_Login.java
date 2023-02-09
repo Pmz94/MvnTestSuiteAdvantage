@@ -3,7 +3,6 @@
 // Created by Samantha Jasso
 
 package tsd;
-
 import org.testng.annotations.Test;
 import base.Browsers;
 import bsn.Bsn_Login;
