@@ -3,7 +3,7 @@
 <suite name="AdvantageSuite" guice-stage="DEVELOPMENT">
 	<test name="Pruebas en Chrome" verbose="2">
 		<parameter name="browser" value="chrome"/>
-		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
 		<classes>
 			<class name="tsd.Tsd_CreateAccount"/>
 			<class name="tsd.Tsd_Login"/>
@@ -14,19 +14,4 @@
 			<class name="tsd.Tsd_Chat"/>
 		</classes>
 	</test>
-	<!--
-	<test name="Pruebas en Firefox" verbose="2">
-		<parameter name="browser" value="firefox"/>
-		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
-		<classes>
-			<class name="tsd.Tsd_CreateAccount"/>
-			<class name="tsd.Tsd_Login"/>
-			<class name="tsd.Tsd_Search"/>
-			<class name="tsd.Tsd_AddToCart"/>
-			<class name="tsd.Tsd_Checkout"/>
-			<class name="tsd.Tsd_Contact"/>
-			<class name="tsd.Tsd_Chat"/>
-		</classes>
-	</test>
-	-->
 </suite>

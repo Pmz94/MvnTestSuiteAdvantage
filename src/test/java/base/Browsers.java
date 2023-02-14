@@ -26,7 +26,7 @@ public class Browsers {
 	@BeforeClass
 	public void setup(
 		@Optional("chrome") String browser,
-		@Optional("https://www.advantageonlineshopping.com") String url
+		@Optional("https://academybugs.com/find-bugs") String url
 	) {
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
