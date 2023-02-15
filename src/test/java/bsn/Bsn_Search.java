@@ -69,5 +69,7 @@ public class Bsn_Search extends Browsers {
 		WebElement titleProductFound = driver.findElement(By.xpath(productTitle));
 		String productNameFound = titleProductFound.getText();
 		Assert.assertEquals(specificProductName.toUpperCase(), productNameFound);
-	}
+		// add some
+    }
+
 }
