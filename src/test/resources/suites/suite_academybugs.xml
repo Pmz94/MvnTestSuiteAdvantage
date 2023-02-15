@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AcademyBugsSuite" guice-stage="DEVELOPMENT">
+	<test name="TC-004" verbose="2">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<classes>
+			<class name="tsd.Tsd_AcademyBugs_TC004"/>
+		</classes>
+	</test>
+
+	<test name="TC-006" verbose="2">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<classes>
+			<class name="tsd.Tsd_AcademyBugs_SignIn"/>
+		</classes>
+	</test>
+
+	<test name="TC-012" verbose="2">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<classes>
+			<class name="tsd.Tsd_AcademyBugs_Search"/>
+		</classes>
+	</test>
+
+	<test name="TC-015" verbose="2">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<classes>
+			<class name="tsd.Tsd_AcademyBugs_ManufactSite"/>
+		</classes>
+	</test>
+
+	<test name="TC-023" verbose="2">
+		<parameter name="browser" value="chrome"/>
+		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<classes>
+			<class name="tsd.Tsd_AcademyBugs_CheckoutProcess"/>
+		</classes>
+	</test>
+</suite>
