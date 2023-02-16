@@ -6,11 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Tsd_AcademyBugs_Description extends Browsers {
-	public String description = "Nam nec tellus a odio tincidunt auctor a ornare odio. "
-		+ "Sed non mauris vitae erat consequat auctor eu in elit. "
-		+ "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
-		+ "Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. "
-		+ "Sed non neque elit sed.";
+	public String description = "For neither the author of the land from hatred nor the hatred of adornment." +
+		"However, it was not a matter of life for the author of football in the field." +
+		"The class is suitable for the silent partners who turn to the shores through our marriages," +
+		"through the Hymenaean projects. Mauris was just in." +
+		"There is no such thing as a pot of football protein sauce." +
+		"But neither did the developer.";
 
 	@Test
 	public void signIn() {
