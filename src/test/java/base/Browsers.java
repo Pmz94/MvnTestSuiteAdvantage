@@ -2,7 +2,9 @@ package base;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -47,6 +49,17 @@ public class Browsers {
 		delay(3);
 		driver.close();
 		driver.quit();
+	}
+
+	public WebElement findElement(String by, String l) {
+		By crit = By.xpath(l);
+		switch(by.toLowerCase().trim()) {
+			case "xpath" -> crit = By.xpath(l);
+			case "id" -> crit = By.id(l);
+			case "name" -> crit = By.name(l);
+			case "classname" -> crit = By.className(l);
+		}
+		return driver.findElement(crit);
 	}
 
 	/**

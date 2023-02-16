@@ -14,14 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import base.Browsers;
 import org.testng.Assert;
 
-public class Bsn_ContactUs extends Browsers {
+public class Bsn_Advantage_ContactUs extends Browsers {
 	WebDriver driver;
 	public String email = "test001@email.com";
 	public String category = "Mice";
 	public String product = "HP Z4000 Wireless Mouse";
 	public String subject = "Producto defectuoso";
 
-	public Bsn_ContactUs(WebDriver driver) {
+	public Bsn_Advantage_ContactUs(WebDriver driver) {
 		this.driver = driver;
 	}
 

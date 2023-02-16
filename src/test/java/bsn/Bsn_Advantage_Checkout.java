@@ -10,14 +10,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class Bsn_Checkout extends Browsers {
+public class Bsn_Advantage_Checkout extends Browsers {
 	WebDriver driver;
 	public boolean emptyCar = true;
 	public String emptyCarMessage = "";
 	public String safepay_user = "teams3";
 	public String safepay_password = "Teams03";
 
-	public Bsn_Checkout(WebDriver driver) {
+	public Bsn_Advantage_Checkout(WebDriver driver) {
 		this.driver = driver;
 	}
 

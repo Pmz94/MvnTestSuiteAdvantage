@@ -5,7 +5,6 @@
 package bsn;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import base.Browsers;
 import org.openqa.selenium.By;
@@ -13,14 +12,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class Bsn_CreateAccount extends Browsers {
+public class Bsn_Advantage_CreateAccount extends Browsers {
 
 	WebDriver driver;
 	public String user = "Teams3";
 	public String email = "teams3@mail.com";
 	public String password = "Teams03";
 
-	public Bsn_CreateAccount(WebDriver driver) {
+	public Bsn_Advantage_CreateAccount(WebDriver driver) {
 		this.driver = driver;
 	}
 

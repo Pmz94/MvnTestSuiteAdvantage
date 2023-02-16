@@ -6,12 +6,12 @@ package tsd;
 
 import org.testng.annotations.Test;
 import base.Browsers;
-import bsn.Bsn_Search;
+import bsn.Bsn_Advantage_Search;
 
-public class Tsd_Search extends Browsers {
+public class Tsd_Advantage_Search extends Browsers {
 	@Test
 	public void search() {
-		Bsn_Search search = new Bsn_Search(driver);
+		Bsn_Advantage_Search search = new Bsn_Advantage_Search(driver);
 		search.Run();
 	}
 }

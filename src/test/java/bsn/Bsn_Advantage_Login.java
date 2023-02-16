@@ -11,14 +11,14 @@ import org.testng.Assert;
 
 import base.Browsers;
 
-public class Bsn_Login extends Browsers {
+public class Bsn_Advantage_Login extends Browsers {
 	WebDriver driver;
 	
 	// User variables
 	public String user = "Juanito";
 	public String password = "Prueba001";
 
-	public Bsn_Login(WebDriver Drdriver) {
+	public Bsn_Advantage_Login(WebDriver Drdriver) {
 		driver = Drdriver;
 	}
 

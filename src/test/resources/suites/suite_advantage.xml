@@ -5,13 +5,13 @@
 		<parameter name="browser" value="chrome"/>
 		<parameter name="url" value="https://academybugs.com/find-bugs"/>
 		<classes>
-			<class name="tsd.Tsd_CreateAccount"/>
-			<class name="tsd.Tsd_Login"/>
-			<class name="tsd.Tsd_Search"/>
-			<class name="tsd.Tsd_AddingToCart"/>
-			<class name="tsd.Tsd_Checkout"/>
-			<class name="tsd.Tsd_ContactUs"/>
-			<class name="tsd.Tsd_Chat"/>
+			<class name="tsd.Tsd_Advantage_CreateAccount"/>
+			<class name="tsd.Tsd_Advantage_Login"/>
+			<class name="tsd.Tsd_Advantage_Search"/>
+			<class name="tsd.Tsd_Advantage_AddingToCart"/>
+			<class name="tsd.Tsd_Advantage_Checkout"/>
+			<class name="tsd.Tsd_Advantage_ContactUs"/>
+			<class name="tsd.Tsd_Advantage_Chat"/>
 		</classes>
 	</test>
 </suite>

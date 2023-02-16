@@ -9,10 +9,10 @@ import org.openqa.selenium.WebDriver;
 
 import base.Browsers;
 
-public class Bsn_AddingToCart extends Browsers {
+public class Bsn_Advantage_AddingToCart extends Browsers {
 	WebDriver driver;
 
-	public Bsn_AddingToCart(WebDriver driver) {
+	public Bsn_Advantage_AddingToCart(WebDriver driver) {
 		this.driver = driver;
 	}
 

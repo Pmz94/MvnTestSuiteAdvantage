@@ -7,13 +7,13 @@ package tsd;
 import org.testng.annotations.Test;
 
 import base.Browsers;
-import bsn.Bsn_CreateAccount;
+import bsn.Bsn_Advantage_CreateAccount;
 
-public class Tsd_CreateAccount extends Browsers {
+public class Tsd_Advantage_CreateAccount extends Browsers {
 
 	@Test
 	public void CreateAccount() {
-		Bsn_CreateAccount user = new Bsn_CreateAccount(driver);
+		Bsn_Advantage_CreateAccount user = new Bsn_Advantage_CreateAccount(driver);
 		user.user = "Team003";
 		user.email = "team3@mail.com";
 		user.password = "Team3";

@@ -14,7 +14,7 @@ import org.testng.Assert;
 
 import base.Browsers;
 
-public class Bsn_Search extends Browsers {
+public class Bsn_Advantage_Search extends Browsers {
 	private static final Integer ID = 1;
 	private static final Integer XPATH = 2;
 	private static final Integer TEN_SECONDS = 10;
@@ -29,7 +29,7 @@ public class Bsn_Search extends Browsers {
 	public String productTitle = "//h1[@class='roboto-regular screen768 ng-binding']";
 	public String specificProductName = "bose soundlink bluetooth speaker III";
 
-	public Bsn_Search(WebDriver driver) {
+	public Bsn_Advantage_Search(WebDriver driver) {
 		this.driver = driver;
 	}
 
