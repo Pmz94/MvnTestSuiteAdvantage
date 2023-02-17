@@ -34,7 +34,6 @@ public class Bsn_AcademyBugs_Breakdown extends Browsers {
 	// Conver String to double
 	private double PriceConvt(String str) {
 		String n1 = str.substring(1);
-		double number = Double.parseDouble(n1);
-		return number;
+		return Double.parseDouble(n1);
 	}
 }

@@ -50,7 +50,6 @@ public class Bsn_AcademyBugs_CartUpdate extends Browsers {
 	// Only works with strings that start with a $ symbol
 	private double PriceConvt(String str) {
 		String n1 = str.substring(1);
-		double number = Double.parseDouble(n1);
-		return number;
+		return Double.parseDouble(n1);
 	}
 }
