@@ -17,3 +17,5 @@ test-output/
 # Maven
 log/
 target/
+
+src/test/resources/jsonfiles/
