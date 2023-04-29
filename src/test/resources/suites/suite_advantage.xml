@@ -6,13 +6,13 @@
 		<parameter name="hidden" value="false"/>
 		<parameter name="url" value="https://academybugs.com/find-bugs"/>
 		<classes>
-			<class name="advantage.tsd.Tsd_CreateAccount"/>
-			<class name="advantage.tsd.Tsd_Login"/>
-			<class name="advantage.tsd.Tsd_Search"/>
-			<class name="advantage.tsd.Tsd_AddingToCart"/>
-			<class name="advantage.tsd.Tsd_Checkout"/>
-			<class name="advantage.tsd.Tsd_ContactUs"/>
-			<class name="advantage.tsd.Tsd_Chat"/>
+			<class name="pageobjects.advantage.tsd.Tsd_CreateAccount"/>
+			<class name="pageobjects.advantage.tsd.Tsd_Login"/>
+			<class name="pageobjects.advantage.tsd.Tsd_Search"/>
+			<class name="pageobjects.advantage.tsd.Tsd_AddingToCart"/>
+			<class name="pageobjects.advantage.tsd.Tsd_Checkout"/>
+			<class name="pageobjects.advantage.tsd.Tsd_ContactUs"/>
+			<class name="pageobjects.advantage.tsd.Tsd_Chat"/>
 		</classes>
 	</test>
 </suite>
