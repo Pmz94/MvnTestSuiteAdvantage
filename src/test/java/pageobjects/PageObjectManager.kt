@@ -1,13 +1,8 @@
 package pageobjects
 
-class PageObjectManager {
+object PageObjectManager {
 
-	private var pageObjectManager: PageObjectManager? = null
-	var hrm = HrmPageObjects()
-
-	companion object Factory {
-		fun getInstance(): PageObjectManager = PageObjectManager()
-	}
+	val hrm = HrmPageObjects
 
 	fun resetPageObjects() {
 		hrm.reset()

@@ -1,8 +1,6 @@
 package pageobjects
 
-class HrmPageObjects {
-
-	init {}
+object HrmPageObjects {
 
 	fun reset() {}
 }

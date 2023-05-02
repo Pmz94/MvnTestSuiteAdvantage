@@ -21,7 +21,7 @@ class Hooks {
 	fun quit(scenario: Scenario) {
 		if(scenario.isFailed) log.info("Escenario fallido")
 		DriverManager.resetDriver()
-		// PageObjectManager.getInstance().resetPageObjects()
+		PageObjectManager.resetPageObjects()
 		log.info("Escenario terminado: ${scenario.name}\n")
 	}
 }

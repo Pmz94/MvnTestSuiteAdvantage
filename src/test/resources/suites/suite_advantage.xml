@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="AdvantageSuite" guice-stage="DEVELOPMENT">
+<suite name="AdvantageSuite">
 	<test name="Pruebas en Chrome" verbose="2">
 		<parameter name="browser" value="chrome"/>
 		<parameter name="hidden" value="false"/>
-		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="pageobjects.advantage.tsd.Tsd_CreateAccount"/>
-			<class name="pageobjects.advantage.tsd.Tsd_Login"/>
-			<class name="pageobjects.advantage.tsd.Tsd_Search"/>
-			<class name="pageobjects.advantage.tsd.Tsd_AddingToCart"/>
-			<class name="pageobjects.advantage.tsd.Tsd_Checkout"/>
-			<class name="pageobjects.advantage.tsd.Tsd_ContactUs"/>
-			<class name="pageobjects.advantage.tsd.Tsd_Chat"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_CreateAccount"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_Login"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_Search"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_AddingToCart"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_Checkout"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_ContactUs"/>
+			<class name="pageobjects.legacy.advantage.tsd.Tsd_Chat"/>
 		</classes>
 	</test>
 </suite>

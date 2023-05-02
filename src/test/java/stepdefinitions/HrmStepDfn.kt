@@ -1,38 +1,22 @@
 package stepdefinitions
 
 import driver.DriverManager
-import io.cucumber.java.en.And
-import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.testng.Assert
-// import pageobjects.PageObjectManager
+import pageobjects.PageObjectManager
 
 class HrmStepDfn {
 
 	private val driver: WebDriver = DriverManager.getDriver()
-	// private final val pages: PageObjectManager = PageObjectManager.getInstance()
-
-	@Given("User is on HRMLogin page {string}")
-	fun loginTest(url: String) {
-		driver.navigate().to(url)
-	}
+	private val pages = PageObjectManager
 
 	@Then("I make sure I am on HRMLogin page")
 	fun iMakeSureIAmOnHRMLoginPage() {
 		val title = driver.findElement(By.xpath("//h5[contains(@class, 'orangehrm-login-title')]"))
 		Assert.assertEquals(title.text, "Login")
-	}
-
-	@And("I wait {int} seconds")
-	fun wait(seconds: Int) {
-		try {
-			Thread.sleep(seconds * 1000L)
-		} catch(e: Exception) {
-			println("No se pudo esperar")
-		}
 	}
 
 	@When("User enters username as {string} and password as {string}")
