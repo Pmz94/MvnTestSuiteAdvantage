@@ -1,6 +1,6 @@
 package stepdefinitions
 
-import driver.DriverManager
+import config.DriverManager
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 

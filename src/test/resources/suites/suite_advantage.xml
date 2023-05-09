@@ -6,13 +6,13 @@
 		<parameter name="hidden" value="false"/>
 		<parameter name="url" value="https://www.advantageonlineshopping.com"/>
 		<classes>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_CreateAccount"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_Login"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_Search"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_AddingToCart"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_Checkout"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_ContactUs"/>
-			<class name="pageobjects.legacy.advantage.tsd.Tsd_Chat"/>
+			<class name="legacy.advantage.tsd.Tsd_CreateAccount"/>
+			<class name="legacy.advantage.tsd.Tsd_Login"/>
+			<class name="legacy.advantage.tsd.Tsd_Search"/>
+			<class name="legacy.advantage.tsd.Tsd_AddingToCart"/>
+			<class name="legacy.advantage.tsd.Tsd_Checkout"/>
+			<class name="legacy.advantage.tsd.Tsd_ContactUs"/>
+			<class name="legacy.advantage.tsd.Tsd_Chat"/>
 		</classes>
 	</test>
 </suite>

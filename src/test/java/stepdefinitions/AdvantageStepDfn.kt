@@ -1,21 +1,65 @@
 package stepdefinitions
 
-import driver.DriverManager
+import config.DriverManager
+import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
+import legacy.advantage.bsn.*
 import org.testng.Assert
-import pageobjects.legacy.advantage.bsn.*
+import pageobjects.AdvantagePageObjs
 
 class AdvantageStepDfn {
 
 	private val driver = DriverManager.getDriver()
+	private val pageObjects = AdvantagePageObjs
 
-	@When("I create an account with this user: {string}, this email: {string} and this password: {string}")
-	fun createAccount(user: String, email: String, password: String) {
-		val userr = Bsn_CreateAccount(driver)
-		userr.user = user
-		userr.email = email
-		userr.password = password
-		userr.Run()
+	@When("I click on the user menu button in the page navbar")
+	fun iClickOnTheUserMenuButton() {
+		pageObjects.openUserMenu()
+	}
+
+	@Then("I verify the User Menu pane is open")
+	fun iVerifyTheUserMenuPaneIsOpen() {
+		pageObjects.verifyIfUserMenuPaneIsOpen()
+	}
+
+	@When("I fill up the next fields in the User Menu pane")
+	fun iFillUpTheNextFieldsInTheUserMenuPane(values: Map<String, String>) {
+		pageObjects.fillUpMenuUserPaneTextFields(values)
+	}
+
+	@Then("I click on the Sign Up button on the User Menu pane")
+	fun iClickOnTheSignUpButtonOnTheUserMenuPane() {
+		pageObjects.clickOnSignInBtn()
+	}
+
+	@When("I click on the Create Account button in the User Menu pane")
+	fun iClickOnTheCreateAccountButtonInTheUserMenuPane() {
+		pageObjects.clickOnCreateAccountBtn()
+	}
+
+	@Then("I verify I am on the Create Account page")
+	fun iVerifyiAmOnTheCreateAccountPage() {
+		pageObjects.verifyCreateAccountPage()
+	}
+
+	@When("I fill up the next fields in the Create Account page")
+	fun iFillUpTheNextFieldsInTheCreateAccountPage(values: Map<String, String>) {
+		pageObjects.fillUpCreateAccountTextFields(values)
+	}
+
+	@Then("I agree to the www.AdvantageOnlineShopping.com Conditions of Use and Privacy Notice in the Create Account page")
+	fun iAgreeToTheConditionsOfUseAndPrivacyNotice() {
+		pageObjects.agreeToTheTerms()
+	}
+
+	@When("I click on the register button on the Create Account page")
+	fun iClickOnTheRegisterButton() {
+		pageObjects.clickOnRegisterBtn()
+	}
+
+	@Then("I verify the username {string} appears in the page navbar")
+	fun iVerifyTheUsernameAppearsOnTheNavbar(expectedUsername: String) {
+		pageObjects.checkIfLoggedIn(expectedUsername)
 	}
 
 	@When("I login with user: {string} and password {string}")

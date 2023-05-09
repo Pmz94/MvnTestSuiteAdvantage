@@ -8,91 +8,91 @@
 
 	<test name="TC-001" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_TC001"/>
+			<class name="legacy.academybugs.tsd.Tsd_TC001"/>
 		</classes>
 	</test>
 
 	<test name="TC-004" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_TC004"/>
+			<class name="legacy.academybugs.tsd.Tsd_TC004"/>
 		</classes>
 	</test>
 
 	<test name="TC-006" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_SignIn"/>
+			<class name="legacy.academybugs.tsd.Tsd_SignIn"/>
 		</classes>
 	</test>
 
 	<test name="TC-011" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_PostReview"/>
+			<class name="legacy.academybugs.tsd.Tsd_PostReview"/>
 		</classes>
 	</test>
 
 	<test name="TC-012" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_Search"/>
+			<class name="legacy.academybugs.tsd.Tsd_Search"/>
 		</classes>
 	</test>
 
 	<test name="TC-015" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_ManufactSite"/>
+			<class name="legacy.academybugs.tsd.Tsd_ManufactSite"/>
 		</classes>
 	</test>
 
 	<test name="TC-016" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_TC016"/>
+			<class name="legacy.academybugs.tsd.Tsd_TC016"/>
 		</classes>
 	</test>
 
 	<test name="TC-017" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_Description"/>
+			<class name="legacy.academybugs.tsd.Tsd_Description"/>
 		</classes>
 	</test>
 
 	<test name="TC-019" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_TC019"/>
+			<class name="legacy.academybugs.tsd.Tsd_TC019"/>
 		</classes>
 	</test>
 
 	<test name="TC-021" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_TC021"/>
+			<class name="legacy.academybugs.tsd.Tsd_TC021"/>
 		</classes>
 	</test>
 
 	<test name="TC-022" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_UpdateShippingInfo"/>
+			<class name="legacy.academybugs.tsd.Tsd_UpdateShippingInfo"/>
 		</classes>
 	</test>
 
 	<test name="TC-023" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_CheckoutProcess"/>
+			<class name="legacy.academybugs.tsd.Tsd_CheckoutProcess"/>
 		</classes>
 	</test>
 
 	<test name="TC-024" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_CartUpdate"/>
+			<class name="legacy.academybugs.tsd.Tsd_CartUpdate"/>
 		</classes>
 	</test>
 
 	<test name="TC-025" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_Breakdown"/>
+			<class name="legacy.academybugs.tsd.Tsd_Breakdown"/>
 		</classes>
 	</test>
 
 	<test name="TC-027" verbose="2">
 		<classes>
-			<class name="pageobjects.legacy.academybugs.tsd.Tsd_SearchByCategory"/>
+			<class name="legacy.academybugs.tsd.Tsd_SearchByCategory"/>
 		</classes>
 	</test>
 </suite>
