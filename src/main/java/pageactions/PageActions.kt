@@ -13,20 +13,26 @@ open class PageActions {
 	private val driver: WebDriver = DriverManager.getDriver()
 	private val elementFindTimeout = Config.getConfigData().elementFindTimeout
 
+	/**
+	 * Para cerrar un alert del navegador
+	 */
 	protected fun dismissAlert() {
 		// Esperar a que salga el alert y hacerle dismiss
 		this.delay(1)
 		driver.switchTo().alert().accept()
 	}
 
+	/**
+	 * Para regresar a la vista anterior en el navegador
+	 */
 	protected fun goBack() {
 		driver.navigate().back()
 	}
 
 	/**
-	 * delay Funcion para facilitar el Thread sleep
+	 * Para facilitar el Thread sleep
 	 *
-	 * @param segundos int
+	 * @param segundos que hay que esperar
 	 */
 	protected fun delay(segundos: Int = 2) {
 		try {
@@ -113,7 +119,7 @@ open class PageActions {
 		return this.findByVisibility(locator)
 	}
 
-	protected open fun findAll(locator: By, timeout: Int): List<WebElement> {
+	protected open fun findElements(locator: By, timeout: Int): List<WebElement> {
 		try {
 			this.findByPresence(locator, timeout)
 		} catch(e: Exception) {

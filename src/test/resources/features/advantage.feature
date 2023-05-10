@@ -27,7 +27,20 @@ Feature: Advantage
 
   Scenario: Search
     Given I'm on page "https://www.advantageonlineshopping.com"
-    When I search for a random product
+    When I click on the Search icon on the page navbar
+    Then I write "speakers" on the search field on the page navbar
+    Then I verify the Search Results pane is visible on the page navbar
+    When I click on the View All button on the Search Results pane
+    Then I close the Search Results pane on the page navbar
+    Then I verify I am on the Search Results page
+    Then I verify there is a product called "Bose Soundlink Wireless Speaker" on the Search Results page
+    And I click on the main logo on the page navbar
+    When I click on the Search icon on the page navbar
+    Then I write "speakers" on the search field on the page navbar
+    Then I verify the Search Results pane is visible on the page navbar
+    Then I verify there is a product called "Bose Soundlink Wireless Speaker" on the Search Results pane
+    When I click on the product called "Bose Soundlink Wireless Speaker" on the Search Results pane
+    Then I verify I am on the product page for "Bose Soundlink Wireless Speaker"
 
   Scenario: Contact
     Given I'm on page "https://www.advantageonlineshopping.com"

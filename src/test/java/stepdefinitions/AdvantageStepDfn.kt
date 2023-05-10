@@ -1,6 +1,7 @@
 package stepdefinitions
 
 import config.DriverManager
+import io.cucumber.java.en.And
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import legacy.advantage.bsn.*
@@ -62,6 +63,7 @@ class AdvantageStepDfn {
 		pageObjects.checkIfLoggedIn(expectedUsername)
 	}
 
+	// TODO: Borrar cuando no se use
 	@When("I login with user: {string} and password {string}")
 	fun login(user: String, password: String) {
 		val login = Bsn_Login(driver)
@@ -70,10 +72,59 @@ class AdvantageStepDfn {
 		login.Run()
 	}
 
-	@When("I search for a random product")
-	fun search() {
-		val search = Bsn_Search(driver)
-		search.Run()
+	@When("I click on the Search icon on the page navbar")
+	fun iClickOnTheSearchIconOnThePageNavbar() {
+		pageObjects.clickOnSearchBtn()
+	}
+
+	@Then("I write {string} on the search field on the page navbar")
+	fun iWriteOnTheSearchFieldOnThePageNavbar(search: String) {
+		pageObjects.search(search)
+	}
+
+	@Then("I verify the Search Results pane is visible on the page navbar")
+	fun iVerifyTheSearchResultsPaneIsVisible() {
+		pageObjects.verifyNavbarSearchResultsPane()
+	}
+
+	@When("I click on the View All button on the Search Results pane")
+	fun iClickOnTheViewAllButtonOnTheSearchResultsPane() {
+		pageObjects.clickOnViewAllSearches()
+	}
+
+	@Then("I close the Search Results pane on the page navbar")
+	fun iCloseTheSearchResultsPane() {
+		pageObjects.closeSearchResultPane()
+	}
+
+	@Then("I verify I am on the Search Results page")
+	fun iVerifyIAmOnTheSearchResultsPage() {
+		pageObjects.verifySearchResultsPage()
+	}
+
+	@Then("I verify there is a product called {string} on the Search Results page")
+	fun iSearchForAProductCalledOnTheSearchResultsPage(product: String) {
+		pageObjects.findProductOnSearchPage(product)
+	}
+
+	@And("I click on the main logo on the page navbar")
+	fun iClickOnTheMainLogo() {
+		pageObjects.goToIndex()
+	}
+
+	@Then("I verify there is a product called {string} on the Search Results pane")
+	fun iSearchForAProductCalledOnTheSearchResultsPane(product: String) {
+		pageObjects.findProductOnSearchPane(product)
+	}
+
+	@When("I click on the product called {string} on the Search Results pane")
+	fun iClickOnTheProductCalledOnTheSearchResultsPane(product: String) {
+		pageObjects.clickOnProductOnSearchPane(product)
+	}
+
+	@Then("I verify I am on the product page for {string}")
+	fun iVerifyIAmOnTheProductPageFor(product: String) {
+		pageObjects.verifyProductPage(product)
 	}
 
 	@When("I add 3 products to the cart")
