@@ -1,42 +1,50 @@
 package stepdefinitions
 
-import config.DriverManager
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
-import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
-import org.testng.Assert
+import pageobjects.HrmPageObjs
 
 class HrmStepDfn {
 
-	private val driver: WebDriver = DriverManager.getDriver()
+	private val pageOjects = HrmPageObjs()
 
-	@Then("I make sure I am on HRMLogin page")
+	@Then("User makes sure it is on HRMLogin page")
 	fun iMakeSureIAmOnHRMLoginPage() {
-		val title = driver.findElement(By.xpath("//h5[contains(@class, 'orangehrm-login-title')]"))
-		Assert.assertEquals(title.text, "Login")
+		pageOjects.verifyLoginPage()
 	}
 
-	@When("User enters username as {string} and password as {string}")
+	@When("User logins with username {string} and password {string}")
 	fun goToHomePage(userName: String, passWord: String) {
-		// login to application
-		driver.findElement(By.name("username")).sendKeys(userName)
-		driver.findElement(By.name("password")).sendKeys(passWord)
-		driver.findElement(By.xpath("//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")).submit()
-		// go the next page
+		pageOjects.login(userName, passWord)
 	}
 
-	@Then("User should be able to login sucessfully and new page open")
-	fun verifyLogin() {
-		val homePageHeading = driver.findElement(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/div/p")).text
-		// Verify new page - HomePage
-		Assert.assertEquals(homePageHeading, "Time at Work")
+	@Then("User should be on the {string} page")
+	fun verifyLogin(title: String) {
+		pageOjects.verifyNavbarTitle(title)
 	}
 
 	@Then("User should be able to see error message {string}")
 	fun verifyErrorMessage(expectedErrorMessage: String) {
-		val actualErrorMessage = driver.findElement(By.xpath("//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")).text
-		// Verify Error Message
-		Assert.assertEquals(actualErrorMessage, expectedErrorMessage)
+		pageOjects.verifyErrorMessage(expectedErrorMessage)
+	}
+
+	@When("User clicks on {string} button on the Sidebar")
+	fun userClicksOnTheButtonOnTheSidebar(button: String) {
+		pageOjects.goToSidebarOption(button)
+	}
+
+	@When("User clicks on {string} button on the PIM Sidebar")
+	fun userClicksOnTheButtonOnThePimSidebar(button: String) {
+		pageOjects.goToMyInfoSidebarOption(button)
+	}
+
+	@Then("User verifies the PIM header title is {string}")
+	fun verifyPimHeader(title: String) {
+		pageOjects.verifyMyInfoHeaderTitle(title)
+	}
+
+	@Then("User makes sure the following fields have these values")
+	fun userMakesSureTheFollowingInputsHaveTheseValues(expectedValues: Map<String, String>) {
+		pageOjects.verifyFieldsValues(expectedValues)
 	}
 }

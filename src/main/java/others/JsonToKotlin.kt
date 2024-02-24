@@ -8,7 +8,10 @@ import org.json.simple.JSONObject
 import java.io.File
 import java.io.FileWriter
 import java.io.IOException
-import java.sql.*
+import java.sql.Connection
+import java.sql.DriverManager
+import java.sql.ResultSet
+import java.sql.SQLException
 
 fun main() {
 	val guias = "--------------------"

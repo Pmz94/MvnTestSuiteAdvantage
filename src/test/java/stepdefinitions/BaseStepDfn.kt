@@ -1,6 +1,7 @@
 package stepdefinitions
 
-import config.DriverManager
+import core.config.DriverManager
+import core.utilities.Asserts
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 
@@ -13,12 +14,12 @@ class BaseStepDfn {
 		driver.navigate().to(url)
 	}
 
-	@And("I wait {int} seconds")
+	@And("Wait {int} seconds")
 	fun wait(seconds: Int) {
 		try {
 			Thread.sleep(seconds * 1000L)
-		} catch(e: Exception) {
-			println("No se pudo esperar")
+		} catch(e: InterruptedException) {
+			Asserts.fail("No se pudo esperar")
 		}
 	}
 }

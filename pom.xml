@@ -1,43 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.softtek</groupId>
 	<artifactId>MvnTestAdvantage</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>MvnTestAdvantage</name>
 	<url>https://github.com/Pmz94/MvnTestSuiteAdvantage</url>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.plugin>3.8.0</maven.compiler.plugin>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<kotlin.v>1.8.21</kotlin.v>
-		<cucumber.v>7.11.2</cucumber.v>
-		<selenium.v>4.9.0</selenium.v>
-		<selenium.webdrivermanager.v>5.3.2</selenium.webdrivermanager.v>
-		<testng.v>7.7.1</testng.v>
-		<slf4j.reload.v>2.0.7</slf4j.reload.v>
-		<apache.common.v>2.11.0</apache.common.v>
+		<kotlin.v>1.9.0</kotlin.v>
+		<cucumber.v>7.13.0</cucumber.v>
+		<selenium.v>4.10.0</selenium.v>
+		<webdrivermanager.v>5.4.1</webdrivermanager.v>
+		<testng.v>7.8.0</testng.v>
 		<apache.poi.v>5.2.3</apache.poi.v>
-
-		<maven.compiler.plugin>3.8.0</maven.compiler.plugin>
-		<maven.surefire.plugin.v>3.0.0-M7</maven.surefire.plugin.v>
+		<slf4j.reload.v>2.0.7</slf4j.reload.v>
+		<apache.commons-text.v>1.10.0</apache.commons-text.v>
+		<apache.commons.v>2.13.0</apache.commons.v>
+		<json-simple.v>1.1.1</json-simple.v>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-stdlib-jdk8</artifactId>
+			<artifactId>kotlin-stdlib</artifactId>
 			<version>${kotlin.v}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-test</artifactId>
+			<artifactId>kotlin-test-testng</artifactId>
 			<version>${kotlin.v}</version>
 			<scope>test</scope>
 		</dependency>
@@ -62,7 +63,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>${selenium.webdrivermanager.v}</version>
+			<version>${webdrivermanager.v}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
@@ -88,52 +89,23 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>${apache.poi.v}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>4.1.2</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>${apache.commons-text.v}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.32</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>2.14.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.14.2</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>2.14.2</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${apache.commons.v}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.10.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-text</artifactId>
-			<version>1.10.0</version>
+			<version>${json-simple.v}</version>
 		</dependency>
 	</dependencies>
 

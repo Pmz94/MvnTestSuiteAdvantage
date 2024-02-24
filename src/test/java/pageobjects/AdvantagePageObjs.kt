@@ -1,10 +1,10 @@
 package pageobjects
 
 import org.openqa.selenium.By
-import org.testng.Assert
-import pageactions.PageActions
+import core.pageactions.PageActions
+import core.utilities.Asserts
 
-object AdvantagePageObjs: PageActions() {
+class AdvantagePageObjs: PageActions() {
 
 	private val NAVBAR_LOGO_BTN: By = By.className("logo")
 	private val NAVBAR_MENU_USER_BTN = By.id("menuUser")
@@ -15,14 +15,14 @@ object AdvantagePageObjs: PageActions() {
 	private val NAVBAR_SEARCH_CLOSE_BTN = By.xpath("//div[@data-ng-click='closeSearchForce()']")
 	private val MENU_SEARCH_PANE = By.className("searchPopUp")
 	private val MENU_SEARCH_PANE_VIEW_ALL_BTN = By.xpath("//a[@class='roboto-medium viewAll ng-scope']")
-	private const val MENU_SEARCH_PANE_RESULTS_PRODUCT = "(//a[@class='product ng-scope']//p[normalize-space() = '%s']/..)"
+	private val MENU_SEARCH_PANE_RESULTS_PRODUCT = "(//a[@class='product ng-scope']//p[normalize-space() = '%s']/..)"
 	private val SEARCH_RESULTS_PAGE_TITLE = By.id("searchResultLabel")
-	private const val TOLOWERCASE = "translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"
-	private const val SEARCH_RESULTS_PAGE_PRODUCT = "//a[$TOLOWERCASE='%s']"
+	private val TOLOWERCASE = "translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"
+	private val SEARCH_RESULTS_PAGE_PRODUCT = "//a[$TOLOWERCASE='%s']"
 	private val PRODUCT_PAGE_NAME = By.xpath("//div[@id='Description']/h1")
 	private val MENU_USER_PANE_USERNAME_FIELD = By.xpath("//input[@name='username']")
 	private val MENU_USER_PANE_PASSWORD_FIELD = By.xpath("//input[@name='password']")
-	private val MENU_USER_PANE_SIGN_IN_BTN = By.xpath("//button[@id='sign_in_btnundefined']")
+	private val MENU_USER_PANE_SIGN_IN_BTN = By.xpath("//button[@id='sign_in_btn']")
 	private val MENU_USER_PANE_CREATE_ACCOUNT_BTN = By.xpath("//*[@data-ng-click='createNewAccount()']")
 	private val CREATE_ACCOUNT_PAGE_TITLE = By.xpath("//h3[text()='CREATE ACCOUNT']")
 	private val CREATE_ACCOUNT_USERNAME_FIELD = By.xpath("//*[@name='usernameRegisterPage']")
@@ -30,7 +30,7 @@ object AdvantagePageObjs: PageActions() {
 	private val CREATE_ACCOUNT_PASSWORD_FIELD = By.xpath("//*[@name='passwordRegisterPage']")
 	private val CREATE_ACCOUNT_CONFIRM_PASSWORD_FIELD = By.xpath("//*[@name='confirm_passwordRegisterPage']")
 	private val CREATE_ACCOUNT_I_AGREE_CHECKBOX = By.xpath("//*[@name='i_agree']")
-	private val CREATE_ACCOUNT_REGISTER_BTN = By.id("register_btnundefined")
+	private val CREATE_ACCOUNT_REGISTER_BTN = By.id("register_btn")
 	private val textFieldsMapMenuUserPane = HashMap<String, (String) -> Unit>()
 	private val textFieldsMapCreateAccount: HashMap<String, (String) -> Unit> = HashMap()
 
@@ -62,7 +62,7 @@ object AdvantagePageObjs: PageActions() {
 
 	fun verifyNavbarSearchResultsPane() {
 		val isVisible = this.isPageObjectVisible(MENU_SEARCH_PANE)
-		Assert.assertTrue(isVisible, "Menu Search pane visibility")
+		Asserts.assertTrue(isVisible, "Menu Search pane visibility")
 	}
 
 	fun clickOnViewAllSearches() {
@@ -76,19 +76,19 @@ object AdvantagePageObjs: PageActions() {
 	fun verifySearchResultsPage() {
 		val expectedTitle = "Search result"
 		val actualTitle = this.findElement(SEARCH_RESULTS_PAGE_TITLE).text
-		Assert.assertTrue(actualTitle.contains(expectedTitle), "Verifying Search Results page")
+		Asserts.assertTrue(actualTitle.contains(expectedTitle), "Verifying Search Results page")
 	}
 
 	fun findProductOnSearchPage(expectedName: String) {
 		val locator = By.xpath(String.format(SEARCH_RESULTS_PAGE_PRODUCT, expectedName.lowercase()))
 		val isFound = this.isPageObjectVisible(locator)
-		Assert.assertTrue(isFound, "Found product in Search page with name $expectedName")
+		Asserts.assertTrue(isFound, "Found product in Search page with name $expectedName")
 	}
 
 	fun findProductOnSearchPane(expectedName: String) {
 		val locator = By.xpath(String.format(MENU_SEARCH_PANE_RESULTS_PRODUCT, expectedName.uppercase()))
 		val isFound = this.isPageObjectVisible(locator)
-		Assert.assertTrue(isFound, "Found product in Search pane with name $expectedName")
+		Asserts.assertTrue(isFound, "Found product in Search pane with name $expectedName")
 	}
 
 	fun clickOnProductOnSearchPane(name: String) {
@@ -98,12 +98,12 @@ object AdvantagePageObjs: PageActions() {
 
 	fun verifyProductPage(productName: String) {
 		val actualName = this.findElement(PRODUCT_PAGE_NAME).text
-		Assert.assertEquals(actualName.uppercase(), productName.uppercase())
+		Asserts.assertEquals(productName.uppercase(), actualName.uppercase(), "Product page name")
 	}
 
 	fun verifyIfUserMenuPaneIsOpen() {
 		val isVisible = this.isPageObjectVisible(NAVBAR_MENU_USER_PANE)
-		Assert.assertTrue(isVisible, "User menu pane visibility")
+		Asserts.assertTrue(isVisible, "User menu pane visibility")
 	}
 
 	fun fillUpMenuUserPaneTextFields(inputMap: Map<String, String>) {
@@ -121,7 +121,7 @@ object AdvantagePageObjs: PageActions() {
 	fun verifyCreateAccountPage() {
 		val expectedTitle = "CREATE ACCOUNT"
 		val actualTitle = this.findElement(CREATE_ACCOUNT_PAGE_TITLE).text
-		Assert.assertEquals(actualTitle, expectedTitle)
+		Asserts.assertEquals(expectedTitle, actualTitle, "Page title")
 	}
 
 	fun fillUpCreateAccountTextFields(inputMap: Map<String, String>) {
@@ -139,6 +139,6 @@ object AdvantagePageObjs: PageActions() {
 
 	fun checkIfLoggedIn(expectedUser: String) {
 		val actualUsername = this.findElement(NAVBAR_USERNAME_LABEL).text
-		Assert.assertEquals(actualUsername, expectedUser)
+		Asserts.assertEquals(expectedUser, actualUsername, "Logged in")
 	}
 }

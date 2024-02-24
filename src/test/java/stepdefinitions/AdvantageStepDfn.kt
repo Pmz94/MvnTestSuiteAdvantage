@@ -1,17 +1,21 @@
 package stepdefinitions
 
-import config.DriverManager
+import core.config.DriverManager
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
-import legacy.advantage.bsn.*
-import org.testng.Assert
+import legacy.advantage.bsn.Bsn_AddingToCart
+import legacy.advantage.bsn.Bsn_Chat
+import legacy.advantage.bsn.Bsn_Checkout
+import legacy.advantage.bsn.Bsn_ContactUs
+import legacy.advantage.bsn.Bsn_Login
+import core.utilities.Asserts
 import pageobjects.AdvantagePageObjs
 
 class AdvantageStepDfn {
 
+	private val pageObjects = AdvantagePageObjs()
 	private val driver = DriverManager.getDriver()
-	private val pageObjects = AdvantagePageObjs
 
 	@When("I click on the user menu button in the page navbar")
 	fun iClickOnTheUserMenuButton() {
@@ -159,6 +163,6 @@ class AdvantageStepDfn {
 	fun chat() {
 		val chat = Bsn_Chat(driver)
 		val isCheck = chat.chatOpen()
-		Assert.assertTrue(isCheck)
+		Asserts.assertTrue(isCheck)
 	}
 }

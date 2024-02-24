@@ -1,7 +1,6 @@
 package legacy.academybugs.tsd;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,8 +16,9 @@ public class Tsd_SignIn extends BaseClass {
 
 	@Test
 	public void signIn() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Duration duration = Duration.ofSeconds(30);
+		WebDriverWait wait = new WebDriverWait(driver, duration);
+		driver.manage().timeouts().implicitlyWait(duration);
 		delay(2);
 
 		driver.findElement(By.xpath("//*[contains(text(),\"Accept cookies\")]")).click();
