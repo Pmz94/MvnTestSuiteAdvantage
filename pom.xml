@@ -14,7 +14,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<testng.v>7.7.1</testng.v>
-		<!--<selenium.v>3.141.59</selenium.v>-->
 		<selenium.v>4.8.1</selenium.v>
 		<selenium.webdrivermanager.v>5.3.2</selenium.webdrivermanager.v>
 	</properties>

@@ -3,96 +3,95 @@
 <suite name="AcademyBugsSuite" guice-stage="DEVELOPMENT">
 
 	<parameter name="browser" value="chrome"/>
-	<parameter name="hidden" value="false"/>
 	<parameter name="url" value="https://academybugs.com/find-bugs"/>
 
 	<test name="TC-001" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_TC001"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_TC001"/>
 		</classes>
 	</test>
 
 	<test name="TC-004" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_TC004"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_TC004"/>
 		</classes>
 	</test>
 
 	<test name="TC-006" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_SignIn"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_SignIn"/>
 		</classes>
 	</test>
 
 	<test name="TC-011" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_PostReview"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_PostReview"/>
 		</classes>
 	</test>
 
 	<test name="TC-012" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_Search"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_Search"/>
 		</classes>
 	</test>
 
 	<test name="TC-015" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_ManufactSite"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_ManufactSite"/>
 		</classes>
 	</test>
 
 	<test name="TC-016" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_TC016"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_TC016"/>
 		</classes>
 	</test>
 
 	<test name="TC-017" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_Description"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_Description"/>
 		</classes>
 	</test>
 
 	<test name="TC-019" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_TC019"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_TC019"/>
 		</classes>
 	</test>
 
 	<test name="TC-021" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_TC021"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_TC021"/>
 		</classes>
 	</test>
 
 	<test name="TC-022" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_UpdateShippingInfo"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_UpdateShippingInfo"/>
 		</classes>
 	</test>
 
 	<test name="TC-023" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_CheckoutProcess"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_CheckoutProcess"/>
 		</classes>
 	</test>
 
 	<test name="TC-024" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_CartUpdate"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_CartUpdate"/>
 		</classes>
 	</test>
 
 	<test name="TC-025" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_Breakdown"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_Breakdown"/>
 		</classes>
 	</test>
 
 	<test name="TC-027" verbose="2">
 		<classes>
-			<class name="academybugs.tsd.Tsd_SearchByCategory"/>
+			<class name="tsd.academybugs.Tsd_AcademyBugs_SearchByCategory"/>
 		</classes>
 	</test>
 </suite>
