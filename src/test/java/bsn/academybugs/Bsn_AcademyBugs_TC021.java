@@ -1,13 +1,13 @@
 package bsn.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class Bsn_AcademyBugs_TC021 extends Browsers {
+public class Bsn_AcademyBugs_TC021 extends BaseTest {
 	WebDriver driver;
 
 	// User variables

@@ -1,12 +1,12 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 // TC-011
-public class Tsd_AcademyBugs_PostReview extends Browsers {
+public class Tsd_AcademyBugs_PostReview extends BaseTest {
 
 	final String comment = "Good product";
 	final String author = "User";

@@ -10,9 +10,9 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import base.Browsers;
+import base.BaseTest;
 
-public class Bsn_Advantage_Chat extends Browsers {
+public class Bsn_Advantage_Chat extends BaseTest {
 
 	public String username = "Marcelo1";
 	public String password = "S1234s";

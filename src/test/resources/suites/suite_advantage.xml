@@ -3,7 +3,7 @@
 <suite name="AdvantageSuite">
 	<test name="Pruebas en Chrome" verbose="2">
 		<parameter name="browser" value="chrome"/>
-		<parameter name="url" value="https://academybugs.com/find-bugs"/>
+		<parameter name="url" value="https://advantageonlineshopping.com"/>
 		<classes>
 			<class name="tsd.advantage.Tsd_Advantage_CreateAccount"/>
 			<class name="tsd.advantage.Tsd_Advantage_Login"/>

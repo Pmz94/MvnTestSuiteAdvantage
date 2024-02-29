@@ -1,6 +1,6 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 // TC-012
-public class Tsd_AcademyBugs_Search extends Browsers {
+public class Tsd_AcademyBugs_Search extends BaseTest {
 
 	final String searchKeyword = "jeans";
 	final String xpath_label_nofound = "//*[@id='ec_product_page']/div[@class='ec_products_no_results']";

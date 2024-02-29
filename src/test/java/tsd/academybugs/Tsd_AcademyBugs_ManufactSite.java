@@ -1,11 +1,11 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class Tsd_AcademyBugs_ManufactSite extends Browsers {
+public class Tsd_AcademyBugs_ManufactSite extends BaseTest {
 
 	@Test
 	public void goToManufacturerSite() {

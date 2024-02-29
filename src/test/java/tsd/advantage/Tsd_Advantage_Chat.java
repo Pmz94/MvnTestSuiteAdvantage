@@ -6,10 +6,10 @@ package tsd.advantage;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import base.Browsers;
+import base.BaseTest;
 import bsn.advantage.Bsn_Advantage_Chat;
 
-public class Tsd_Advantage_Chat extends Browsers {
+public class Tsd_Advantage_Chat extends BaseTest {
 
 	@Test
 	public void Chat() {

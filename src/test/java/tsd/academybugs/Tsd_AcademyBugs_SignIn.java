@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import base.Browsers;
+import base.BaseTest;
 
-public class Tsd_AcademyBugs_SignIn extends Browsers {
+public class Tsd_AcademyBugs_SignIn extends BaseTest {
 
 	public String email = "testAcademy@email.com";
 	public String password = "Password";

@@ -1,10 +1,10 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import bsn.academybugs.Bsn_AcademyBugs_TC021;
 import org.testng.annotations.Test;
 
-public class Tsd_AcademyBugs_TC021 extends Browsers {
+public class Tsd_AcademyBugs_TC021 extends BaseTest {
 
 	@Test
 	public void tc021() {

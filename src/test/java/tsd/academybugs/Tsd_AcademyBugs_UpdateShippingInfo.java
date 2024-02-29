@@ -1,13 +1,12 @@
 package tsd.academybugs;
 
-import base.Browsers;
-import org.openqa.selenium.By;
+import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Tsd_AcademyBugs_UpdateShippingInfo extends Browsers {
+public class Tsd_AcademyBugs_UpdateShippingInfo extends BaseTest {
 
 	final String email = "correo@example.com";
 	final String passwd = "Admin1";

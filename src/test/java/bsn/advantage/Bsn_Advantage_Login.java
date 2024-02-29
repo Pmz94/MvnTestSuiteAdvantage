@@ -4,46 +4,34 @@
 
 package bsn.advantage;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import base.Browsers;
+public class Bsn_Advantage_Login extends BasePage {
 
-public class Bsn_Advantage_Login extends Browsers {
-	WebDriver driver;
-	
-	// User variables
-	public String user = "Juanito";
-	public String password = "Prueba001";
+    private final By userIcon = By.xpath("//a[@id='hrefUserIcon']//*[name()='svg']");
+    private final By usernameField = By.xpath("//input[@name='username']");
+    private final By passwordField = By.xpath("//input[@name='password']");
+    private final By signUpBtn = By.xpath("//button[@id='sign_in_btn']");
+    private final By menuUserLink = By.xpath("//*[@id='menuUserLink']/span");
 
-	public Bsn_Advantage_Login(WebDriver Drdriver) {
-		driver = Drdriver;
-	}
+    public Bsn_Advantage_Login(WebDriver driver) {
+        super(driver);
+    }
 
-	public void Run() {
-		// Input user locator
-		WebElement btnUser = driver.findElement(By.xpath("//a[@id='hrefUserIcon']//*[name()='svg']"));
-		btnUser.click();
-		delay(2);
+    public void login(String user, String password) {
+        // Input user locator
+        this.clickElement(userIcon);
+        this.inputData(usernameField, user);
+        this.inputData(passwordField, password);
+        this.clickElement(signUpBtn);
+    }
 
-		WebElement inputUserName = driver.findElement(By.xpath("//input[@name=\"username\"]"));
-		inputUserName.sendKeys(user);
-
-		WebElement inputPassword = driver.findElement(By.xpath("//input[@name=\"password\"]"));
-		inputPassword.sendKeys(password);
-
-		WebElement buttonSign = driver.findElement(By.xpath("//button[@id=\"sign_in_btnundefined\"]"));
-		buttonSign.click();
-		delay(1);
-
-		WebElement userMessage = driver.findElement(By.xpath("//*[@id=\"menuUserLink\"]/span"));
-		delay(1);
-
-		Assert.assertEquals(user, userMessage.getText());
-		btnUser.click();
-		delay(1);
-		btnUser.click();
-	}
+    public void verifyUserLoggedIn(String expectedUser) {
+        Assert.assertEquals(this.getTextFromElement(menuUserLink), expectedUser);
+        this.clickElement(userIcon);
+        this.clickElement(userIcon);
+    }
 }

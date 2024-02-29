@@ -1,6 +1,6 @@
 package bsn.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class Bsn_AcademyBugs_CartUpdate extends Browsers {
+public class Bsn_AcademyBugs_CartUpdate extends BaseTest {
 
 	WebDriver driver;
 	int quantity = 10;

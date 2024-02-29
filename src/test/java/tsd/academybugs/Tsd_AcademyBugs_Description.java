@@ -1,11 +1,11 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Tsd_AcademyBugs_Description extends Browsers {
+public class Tsd_AcademyBugs_Description extends BaseTest {
 	public String description = "For neither the author of the land from hatred nor the hatred of adornment." +
 		"However, it was not a matter of life for the author of football in the field." +
 		"The class is suitable for the silent partners who turn to the shores through our marriages," +

@@ -18,9 +18,10 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <testng.v>7.7.1</testng.v>
-        <selenium.v>4.8.1</selenium.v>
-        <webdrivermanager.v>5.3.2</webdrivermanager.v>
+        <testng.v>7.9.0</testng.v>
+        <selenium.v>4.18.1</selenium.v>
+        <webdrivermanager.v>5.7.0</webdrivermanager.v>
+        <jackson.databind.v>2.16.1</jackson.databind.v>
         <apache.poi.v>5.2.5</apache.poi.v>
         <apache.commons.v>2.15.1</apache.commons.v>
         <apache.commons-text.v>1.11.0</apache.commons-text.v>
@@ -34,17 +35,26 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.v}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.v}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.v}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.v}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -58,18 +68,21 @@
             <artifactId>poi-ooxml</artifactId>
             <version>${apache.poi.v}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>${apache.commons-text.v}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${apache.commons.v}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>

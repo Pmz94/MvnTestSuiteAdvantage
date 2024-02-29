@@ -1,6 +1,6 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import base.Product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Tsd_AcademyBugs_SearchByCategory extends Browsers {
+public class Tsd_AcademyBugs_SearchByCategory extends BaseTest {
 	ArrayList<Product> products = new ArrayList<>();
 	Product fall_coat = new Product("ec_product_li_fall-coat", categorias.WEEKEND);
 	Product boho_bangle_bracelet = new Product("ec_product_li_boho-bangle-bracelet", categorias.BRACELETS);

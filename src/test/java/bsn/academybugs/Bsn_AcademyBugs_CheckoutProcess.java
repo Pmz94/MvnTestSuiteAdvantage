@@ -1,12 +1,12 @@
 package bsn.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class Bsn_AcademyBugs_CheckoutProcess extends Browsers {
+public class Bsn_AcademyBugs_CheckoutProcess extends BaseTest {
 
 	WebDriver driver;
 	WebDriver country;

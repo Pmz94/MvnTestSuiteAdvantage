@@ -1,11 +1,11 @@
 package bsn.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Bsn_AcademyBugs_Breakdown extends Browsers {
+public class Bsn_AcademyBugs_Breakdown extends BaseTest {
 	WebDriver driver;
 
 	public Bsn_AcademyBugs_Breakdown(WebDriver Drdriver) {

@@ -1,10 +1,10 @@
 package tsd.academybugs;
 
-import base.Browsers;
+import base.BaseTest;
 import org.testng.annotations.Test;
 import bsn.academybugs.Bsn_AcademyBugs_CartUpdate;
 
-public class Tsd_AcademyBugs_CartUpdate extends Browsers {
+public class Tsd_AcademyBugs_CartUpdate extends BaseTest {
 
 	@Test
 	public void cartUpdate() {

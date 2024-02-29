@@ -4,19 +4,19 @@
 
 package tsd.advantage;
 
-import org.testng.annotations.Test;
-
-import base.Browsers;
+import base.BaseTest;
 import bsn.advantage.Bsn_Advantage_CreateAccount;
+import java.io.IOException;
+import models.User;
+import org.testng.annotations.Test;
+import utils.JacksonUtils;
 
-public class Tsd_Advantage_CreateAccount extends Browsers {
+public class Tsd_Advantage_CreateAccount extends BaseTest {
 
-	@Test
-	public void CreateAccount() {
-		Bsn_Advantage_CreateAccount user = new Bsn_Advantage_CreateAccount(driver);
-		user.user = "Team003";
-		user.email = "team3@mail.com";
-		user.password = "Team3";
-		user.Run();
-	}
+    @Test
+    public void createAccount() throws IOException {
+        User user = JacksonUtils.deserializeJson("data/testUser.json", User.class);
+        Bsn_Advantage_CreateAccount createAccountPage = new Bsn_Advantage_CreateAccount(driver);
+        createAccountPage.createAccount(user.getUsername(), user.getEmail(), user.getPassword());
+    }
 }
