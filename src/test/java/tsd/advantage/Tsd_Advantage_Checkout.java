@@ -21,7 +21,9 @@ public class Tsd_Advantage_Checkout extends BaseTest {
         login.verifyUserLoggedIn(user);
 
         Bsn_Advantage_AddingToCart addCart = new Bsn_Advantage_AddingToCart(driver);
-        addCart.Run();
+        addCart.addToCartBySpecificName("speakers", "Bose Soundlink Bluetooth Speaker III");
+        addCart.addToCartByFirstItemOnTheList("tablets");
+        addCart.addToCartBySpecificName("laptops", "HP Chromebook 14 G1(ENERGY STAR)");
 
         Bsn_Advantage_Checkout checkout = new Bsn_Advantage_Checkout(driver);
         checkout.Run(user, password);

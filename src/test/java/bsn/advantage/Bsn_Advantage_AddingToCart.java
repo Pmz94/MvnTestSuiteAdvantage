@@ -5,47 +5,99 @@
 package bsn.advantage;
 
 import base.BasePage;
+import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class Bsn_Advantage_AddingToCart extends BasePage {
+
+    private final By speakersImg = By.id("speakersImg");
+    private final By speakersLink = By.id("speakersLink");
+    private final By tabletsImg = By.id("tabletsImg");
+    private final By tabletsLink = By.id("tabletsLink");
+    private final By laptopsImg = By.id("laptopsImg");
+    private final By laptopsLink = By.id("laptopsLink");
+    private final By firstItemOnTheList = By.cssSelector("ul > .ng-scope:nth-child(1)");
+    private final By productNameLabel = By.cssSelector("div#Description h1.roboto-regular.ng-binding");
+    private final By saveToCartBtn = By.name("save_to_cart");
+    private final By popupCartProduct = By.cssSelector("tool-tip-cart#toolTipCart table tr#product");
+    private final By popupCartProductName = By.tagName("h3");
+    private final By popupCartProductRemove = By.cssSelector("div.closeDiv>div.removeProduct");
+    private final By popupCheckoutBtn = By.id("checkOutPopUp");
+    private final By homeLink = By.linkText("HOME");
 
     public Bsn_Advantage_AddingToCart(WebDriver driver) {
         super(driver);
     }
 
-    public void Run() {
-        delay(3);
-        // 3 | click | id=speakersLink |
-        this.clickElement(By.id("speakersLink"));
-        delay(2);
-        // 4 | click | linkText=Bose Soundlink Bluetooth Speaker III |
-        this.clickElement(By.linkText("Bose Soundlink Bluetooth Speaker III"));
-        delay(1);
-        // 5 | click | name=save_to_cart |
-        this.clickElement(By.name("save_to_cart"));
-        // 6 | click | linkText=HOME |
-        this.clickElement(By.linkText("HOME"));
+    private By getCategoryImg(String category) {
+        return switch (category.toLowerCase()) {
+            case "speakers" -> speakersImg;
+            case "tablets" -> tabletsImg;
+            case "laptops" -> laptopsImg;
+            default -> throw new InvalidArgumentException("Invalid category: " + category);
+        };
+    }
 
-        delay(3);
-        // 7 | click | id=tabletsImg |
-        this.clickElement(By.id("tabletsImg"));
-        delay(2);
-        // 8 | click | css=ul > .ng-scope:nth-child(1) |
-        this.clickElement(By.cssSelector("ul > .ng-scope:nth-child(1)"));
-        delay(1);
-        // 9 | click | name=save_to_cart |
-        this.clickElement(By.name("save_to_cart"));
-        // 10 | click | linkText=HOME |
-        this.clickElement(By.linkText("HOME"));
-        delay(3);
-        // 11 | click | id=laptopsImg |
-        this.clickElement(By.id("laptopsImg"));
-        delay(2);
-        // 12 | click | linkText=HP Chromebook 14 G1(ENERGY STAR) |
-        this.clickElement(By.linkText("HP Chromebook 14 G1(ENERGY STAR)"));
-        delay(1);
-        // 13 | click | name=save_to_cart |
-        this.clickElement(By.name("save_to_cart"));
+    private By getCategoryLink(String category) {
+        return switch (category.toLowerCase()) {
+            case "speakers" -> speakersLink;
+            case "tablets" -> tabletsLink;
+            case "laptops" -> laptopsLink;
+            default -> throw new InvalidArgumentException("Invalid category: " + category);
+        };
+    }
+
+    private void addToCart() {
+        // Product page
+        this.waitUntilPresent(productNameLabel);
+        // click | name=save_to_cart |
+        this.clickElement(saveToCartBtn);
+        // Cart popup
+        this.waitUntilVisible(popupCheckoutBtn);
+        // click | linkText=HOME |
+        this.clickElement(homeLink);
+    }
+
+    private void verifyIfProductIsInCartPopup(String expectedProductName) {
+        // expected BOSE SOUNDLINK BLUETOOTH SPEAKER III
+        List<WebElement> productListPopup = this.findElements(popupCartProduct);
+        boolean productFound = false;
+        for (WebElement product : productListPopup) {
+            // actual BOSE SOUNDLINK BLUETOOTH SP...
+            String actualProductName = product.findElement(popupCartProductName).getText().trim();
+            if (actualProductName.equals(expectedProductName)) {
+                productFound = true;
+                product.findElement(popupCartProductRemove).click();
+                break;
+            }
+        }
+        Assert.assertTrue(productFound, expectedProductName + " not found in the cart popup");
+    }
+
+    public void addToCartBySpecificName(String category, String name) {
+        // Home page
+        this.hoverOver(this.getCategoryImg(category));
+        // click | id=speakersLink |
+        this.clickElement(this.getCategoryLink(category));
+        // Category page
+        // click | linkText=Bose Soundlink Bluetooth Speaker III |
+        this.clickElement(By.linkText(name));
+        // Product page
+        this.addToCart();
+    }
+
+    public void addToCartByFirstItemOnTheList(String category) {
+        // Home page
+        // click | id=tabletsImg |
+        this.clickElement(this.getCategoryImg(category));
+        // Category page
+        // click | css=ul > .ng-scope:nth-child(1) |
+        this.clickElement(firstItemOnTheList);
+        // Product page
+        this.addToCart();
     }
 }

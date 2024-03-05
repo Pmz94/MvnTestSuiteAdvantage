@@ -12,53 +12,56 @@ import org.testng.Assert;
 
 public class Bsn_Advantage_Checkout extends BasePage {
 
-    public boolean emptyCar = true;
-    public String emptyCarMessage = "";
+    private final By shoppingCartLink = By.id("shoppingCartLink");
+    private final By noProductsInCartMessage = By.xpath("//div[@id='shoppingCart']/div/label");
+    private final By checkOutButton = By.id("checkOutButton");
+    private final By nextBtn = By.id("next_btn");
+    private final By safepayRadioBtn = By.xpath("//div[@id='paymentMethod']/div/div[1]/div[1]/input");
+    private final By safepayUsernameField = By.name("safepay_username");
+    private final By safepayPasswordField = By.name("safepay_password");
+    private final By safepaySaveCheckbox = By.name("save_safepay");
+    private final By totalAmount = By.xpath("//div[@id='userCart']/div[2]/label[2]/span");
+    private final By payNowBtnSafepay = By.id("pay_now_btn_SAFEPAY");
+    private final By orderPaymentSuccessMessage = By.xpath("//*[@id='orderPaymentSuccess']/h2/span");
 
     public Bsn_Advantage_Checkout(WebDriver driver) {
         super(driver);
     }
 
     public void Run(String safepay_user, String safepay_password) {
-        this.clickElement(By.id("shoppingCartLink"));
+        // Home page
+        this.clickElement(shoppingCartLink);
 
+        // Cart page
         // Ver si hay productos en el carrito
-        WebElement l = this.findByVisibility(By.xpath("//*[@id='shoppingCart']/div/label"));
+        if (!this.isPageObjectVisible(noProductsInCartMessage)) {
+            this.clickElement(checkOutButton);
+            // Order payment page part 1
+            this.clickElement(nextBtn);
 
-        if (!l.isDisplayed()) {
-            this.clickElement(By.id("checkOutButton"));
-            delay(3);
-            this.clickElement(By.id("next_btn"));
-
+            // Order payment page part 2
             // Check payment method
-            this.clickElement(By.xpath("//*[@id='paymentMethod']/div/div[1]/div[1]/input"));
+            this.clickElement(safepayRadioBtn);
 
             // payment account credentials
-            this.inputData(By.name("safepay_username"), safepay_user);
-            this.inputData(By.name("safepay_password"), safepay_password);
+            this.inputData(safepayUsernameField, safepay_user);
+            this.inputData(safepayPasswordField, safepay_password);
 
             // checkbox
-            WebElement checkbox1 = this.findByVisibility(By.name("save_safepay"));
-            if (checkbox1.isSelected()) checkbox1.click();
+            this.clickCheckBox(safepaySaveCheckbox, false);
 
             // Total
-            String total1 = this.getTextFromElement(By.xpath("//*[@id='userCart']/div[2]/label[2]/span"));
+            String total1 = this.getTextFromElement(totalAmount);
 
-            delay(2);
+            this.clickElement(payNowBtnSafepay);
 
-            // WebElement payButton = driver.findElement(By.id("pay_now_btn_SAFEPAY"));
-            // print("" + payButton.isEnabled());
-            // if(payButton.isEnabled()) payButton.click();
-
-            this.clickElement(By.xpath("//*[@id='pay_now_btn_SAFEPAY']"));
-
-            delay(4);
-
-            String mensaje = this.getTextFromElement(By.xpath("//*[@id='orderPaymentSuccess']/h2/span"));
+            // Success page
+            String mensaje = this.getTextFromElement(orderPaymentSuccessMessage);
             print(mensaje);
 
             int pass = 0;
 
+            Assert.assertEquals(mensaje, "Thank you for buying with Advantage");
             if (mensaje.equals("Thank you for buying with Advantage")) {
                 print("mensaje validado");
                 pass++;
@@ -83,7 +86,7 @@ public class Bsn_Advantage_Checkout extends BasePage {
 
             Assert.assertEquals(pass, 3);
         } else {
-            String texto = l.getText().trim();
+            String texto = this.getTextFromElement(noProductsInCartMessage).trim();
             print("No hay productos en el carrito");
             Assert.assertEquals(texto, "Your shopping cart is empty");
         }

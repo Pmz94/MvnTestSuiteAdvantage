@@ -11,33 +11,37 @@ import org.testng.Assert;
 
 public class Bsn_Advantage_Search extends BasePage {
 
-    public final String baseUrl = "https://advantageonlineshopping.com/";
-    public final By searchIcon = By.id("searchSection");
-    public final By searchInput = By.id("autoComplete");
-    public final By viewAllOption = By.xpath("//a[@class='roboto-medium viewAll ng-scope']");
-    public final By closeSearch = By.xpath("//div[@data-ng-click='closeSearchForce()']");
-    public final String specificProduct = "//a[normalize-space()='%s']";
-    public final By foundProduct = By.xpath("//a[@class='product ng-scope']//img");
-    public final By productTitle = By.xpath("//h1[@class='roboto-regular screen768 ng-binding']");
+    private final By advantageLogo = By.cssSelector("a[ng-click='go_up()']");
+    private final By searchIcon = By.id("searchSection");
+    private final By searchInput = By.id("autoComplete");
+    private final By viewAllBtn = By.xpath("//a[@class='roboto-medium viewAll ng-scope']");
+    private final By closeSearch = By.xpath("//div[@data-ng-click='closeSearchForce()']");
+    private final String specificProduct = "//a[normalize-space()='%s']";
+    private final By foundProduct = By.xpath("//a[@class='product ng-scope']//img");
+    private final By productTitle = By.xpath("//h1[@class='roboto-regular screen768 ng-binding']");
 
     public Bsn_Advantage_Search(WebDriver driver) {
         super(driver);
     }
 
     public void searchSpecificProduct(String category, String specificProductName) {
+        // Home page
         this.clickElement(searchIcon);
         this.inputData(searchInput, category);
-
-        this.clickElement(viewAllOption);
+        // Search results page
+        this.clickElement(viewAllBtn);
         this.clickElement(closeSearch);
 
         String productName = this.getTextFromElement(By.xpath(String.format(specificProduct, specificProductName)));
 
-        this.navigateTo(baseUrl);
+        this.clickElement(advantageLogo);
+
+        // Home page
         this.clickElement(searchIcon);
         this.inputData(searchInput, productName);
         this.clickElement(foundProduct);
 
+        // Product page
         String productNameFound = this.getTextFromElement(productTitle);
         Assert.assertEquals(specificProductName.toUpperCase(), productNameFound);
     }

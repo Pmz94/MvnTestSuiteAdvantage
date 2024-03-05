@@ -5,10 +5,10 @@
 		<parameter name="browser" value="chrome"/>
 		<parameter name="url" value="https://advantageonlineshopping.com"/>
 		<classes>
-			<class name="tsd.advantage.Tsd_Advantage_CreateAccount"/>
-			<class name="tsd.advantage.Tsd_Advantage_Login"/>
-			<class name="tsd.advantage.Tsd_Advantage_Search"/>
-			<class name="tsd.advantage.Tsd_Advantage_AddingToCart"/>
+			<class name="tsd.advantage.AdvantageCreateAccountTest"/>
+			<class name="tsd.advantage.AdvantageLoginTest"/>
+			<class name="tsd.advantage.AdvantageSearchTest"/>
+			<class name="tsd.advantage.AdvantageAddingToCartTest"/>
 			<class name="tsd.advantage.Tsd_Advantage_Checkout"/>
 			<class name="tsd.advantage.Tsd_Advantage_ContactUs"/>
 			<class name="tsd.advantage.Tsd_Advantage_Chat"/>

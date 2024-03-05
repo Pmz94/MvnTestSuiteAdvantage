@@ -16,6 +16,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -29,7 +30,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BasePage {
 
@@ -38,8 +40,10 @@ public class BasePage {
     private final JavascriptExecutor js;
     private static final int pageLoadTimeout = 10;
     private static final int elementFindTimeout = 10;
+    private static final int elementFindShortTimeout = 3;
     private static final int delayDefaultTime = 2;
     private static final String elementNotFoundMessage = "No se encontro el elemento %s en %s segundos";
+    public Logger log = LoggerFactory.getLogger(BasePage.class);
 
     protected BasePage(WebDriver driver) {
         this.driver = driver;
@@ -48,7 +52,7 @@ public class BasePage {
     }
 
     protected void print(String message) {
-        System.out.println(message);
+        log.info(message);
     }
 
     protected JavascriptExecutor getJsExecutor() {
@@ -66,9 +70,9 @@ public class BasePage {
             TakesScreenshot screenshotTaker = (TakesScreenshot) driver;
             File src = screenshotTaker.getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(src, Paths.get(filePath).toFile());
-            System.out.println("Screenshot tomada: " + fileName);
+            log.info("Screenshot tomada: " + fileName);
         } catch (IOException e) {
-            Assert.fail("No se pudo guardar el archivo en" + filePath);
+            throw new RuntimeException("No se pudo guardar el archivo en" + filePath);
         }
     }
 
@@ -87,7 +91,7 @@ public class BasePage {
     protected void checkIfBroken(String url) {
         int statusCode = this.getLinkStatusCode(url);
         if (statusCode >= 400) {
-            Assert.fail("Error " + statusCode + ": No se encontro la pagina " + url);
+            throw new RuntimeException("Error " + statusCode + ": No se encontro la pagina " + url);
         }
     }
 
@@ -102,8 +106,7 @@ public class BasePage {
             conn.connect();
             return conn.getResponseCode();
         } catch (IOException e) {
-            Assert.fail(e.getLocalizedMessage());
-            return 0;
+            throw new RuntimeException(e.getLocalizedMessage());
         }
     }
 
@@ -135,14 +138,14 @@ public class BasePage {
         boolean switched = false;
         for (String handle : driver.getWindowHandles()) {
             driver.switchTo().window(handle);
-            System.out.println("Window title: " + this.getBrowserTitle());
+            log.info("Window title: " + this.getBrowserTitle());
             if (this.getBrowserTitle().contains(windowTitle)) {
                 switched = true;
                 break;
             }
         }
 
-        if (!switched) Assert.fail(String.format("No hay una ventana con el nombre '%s'", windowTitle));
+        if (!switched) throw new RuntimeException(String.format("No hay una ventana con el nombre '%s'", windowTitle));
     }
 
     // IFRAMES
@@ -273,6 +276,8 @@ public class BasePage {
     private void clickElement(WebElement element, int attempt) {
         try {
             element.click();
+        } catch (ElementClickInterceptedException e) {
+            this.clickWithJavascript(element);
         } catch (Exception e) {
             if (attempt < 2) {
                 this.clickElement(element, attempt + 1);
@@ -282,11 +287,11 @@ public class BasePage {
         }
     }
 
-    protected void clickWithJavaScript(By locator) {
-        this.clickWithJavaScript(this.findByPresence(locator));
+    protected void clickWithJavascript(By locator) {
+        this.clickWithJavascript(this.findByPresence(locator));
     }
 
-    protected void clickWithJavaScript(WebElement element) {
+    protected void clickWithJavascript(WebElement element) {
         this.js.executeScript("arguments[0].click();", element);
     }
 
@@ -318,7 +323,7 @@ public class BasePage {
         String byType = null;
         if (locator.toString().startsWith("By.xpath: ")) byType = "xpath";
         else if (locator.toString().startsWith("By.cssSelector: ")) byType = "cssSelector";
-        Assert.assertNotNull(byType, "Tipo de locator By desconocido: " + locator);
+        if (byType == null) throw new RuntimeException("Tipo de locator By desconocido: " + locator);
         String xpath = locator.toString().replaceFirst("By." + byType + ": ", "");
 
         String jsScript = "return getTextList(arguments[0], arguments[1]); " + getTextListScript();
@@ -340,7 +345,7 @@ public class BasePage {
     // IS
 
     protected Boolean isPageObjectVisible(By locator) {
-        return this.isPageObjectVisible(locator, elementFindTimeout);
+        return this.isPageObjectVisible(locator, elementFindShortTimeout);
     }
 
     protected Boolean isPageObjectVisible(By locator, int timeout) {
@@ -353,7 +358,7 @@ public class BasePage {
     }
 
     protected Boolean isPageObjectPresent(By locator) {
-        return this.isPageObjectPresent(locator, elementFindTimeout);
+        return this.isPageObjectPresent(locator, elementFindShortTimeout);
     }
 
     protected Boolean isPageObjectPresent(By locator, int timeout) {
@@ -369,6 +374,11 @@ public class BasePage {
 
     protected WebElement findElement(By locator) {
         return this.findByVisibility(locator);
+    }
+
+    protected WebElement findElement(By locator, By inside) {
+        WebElement parentElement = this.findByPresence(inside);
+        return parentElement.findElement(locator);
     }
 
     protected List<WebElement> findElements(By locator) {
@@ -471,6 +481,28 @@ public class BasePage {
         w.withTimeout(timeoutDuration).until(ExpectedConditions.alertIsPresent());
     }
 
+    // SCROLL
+
+    public void scrollToElement(By locator) {
+        this.scrollToElement(this.findByVisibility(locator));
+    }
+
+    public void scrollToElement(WebElement element) {
+        this.js.executeScript(
+            "window.scrollTo(arguments[0], arguments[1])",
+            element.getLocation().x,
+            element.getLocation().y
+        );
+    }
+
+    public void scrollToTopOfPage() {
+        this.js.executeScript("window.scrollTo(0, 0)");
+    }
+
+    public void scrollToBottomOfPage() {
+        this.js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
     // Otras funciones que pueden servir
 
     private void controlClickElement(By locator) {
@@ -491,12 +523,14 @@ public class BasePage {
         element.sendKeys(Keys.ENTER);
     }
 
-    protected void checkBoxIfNotChecked(By locator) {
-        this.checkBoxIfNotChecked(this.findByPresence(locator));
+    protected void clickCheckBox(By locator, boolean checked) {
+        this.clickCheckBox(this.findByPresence(locator), checked);
     }
 
-    protected void checkBoxIfNotChecked(WebElement checkbox) {
-        if (!checkbox.isSelected()) checkbox.click();
+    protected void clickCheckBox(WebElement checkbox, boolean checked) {
+        boolean isSelected = checkbox.isSelected();
+        boolean clickable = isSelected && !checked || !isSelected && checked;
+        if (clickable) checkbox.click();
     }
 
     private void selectRandomFromCombobox(By locator) {
@@ -570,8 +604,7 @@ public class BasePage {
         try {
             return Arrays.toString(Files.readAllBytes(Paths.get(filePath)));
         } catch (IOException e) {
-            Assert.fail("No se pudo leer el archivo " + filePath);
-            return "";
+            throw new RuntimeException("No se pudo leer el archivo " + filePath);
         }
     }
 }

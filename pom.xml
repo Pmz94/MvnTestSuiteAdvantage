@@ -22,6 +22,8 @@
         <selenium.v>4.18.1</selenium.v>
         <webdrivermanager.v>5.7.0</webdrivermanager.v>
         <jackson.databind.v>2.16.1</jackson.databind.v>
+        <slf4j.v>2.0.12</slf4j.v>
+
         <apache.poi.v>5.2.5</apache.poi.v>
         <apache.commons.v>2.15.1</apache.commons.v>
         <apache.commons-text.v>1.11.0</apache.commons-text.v>
@@ -55,6 +57,20 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind.v}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.v}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.v}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
